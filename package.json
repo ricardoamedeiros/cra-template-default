@@ -1,0 +1,26 @@
+{
+  "name": "cra-template-default",
+  "version": "1.0.0",
+  "main": "template.json",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template-default"
+  ],
+  "description": "Template para criar aplicações React.",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/ricardoamedeiros/cra-template-default.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "bugs": {
+    "url": "https://github.com/ricardoamedeiros/cra-template-default/issues"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}
