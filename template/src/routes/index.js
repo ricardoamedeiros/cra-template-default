@@ -12,6 +12,7 @@ const PrivateRoute = ({ component: Component }) => {
     <AuthContext.Provider>
       <Route
         render={props => {
+          //Se tiver autenticado abre o componente, caso contrário abre a tela de login.
           return (keycloak.authenticated ? (
             <Component {...props} />
           ) : (
@@ -35,7 +36,7 @@ const Routes = () => {
     <Switch>
       <Route exact path="/" component={() => <Home/>} />
       <Route path="/login" component={props => <Login redirectTo="/app" {...props} />} />
-      <PrivateRoute path="/app" component={() => <Privado/>} />
+      <PrivateRoute path="/private" component={() => <Privado/>} />
     </Switch>
   </BrowserRouter>)
 };

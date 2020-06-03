@@ -13,30 +13,52 @@ keycloak
 
 export const AuthProvider = ({ children }) => {
 
+    const [authenticated, setAuthenticated] = useState(false);
+    const [user, setUser] = useState(null);
+    const [token, setToken] = useState(null);
+    
     let values = {
-        keycloak
+        keycloak,
+        authenticated,
+        user,
+        token
+    }
+
+    const setAuth = () => {
+        setAuthenticated(true);
+        setUser(keycloak.tokenParsed);
+        setToken(keycloak.token);
+    }
+
+    const cleanAuth = () => {
+        setAuthenticated(false);
+        setUser(null);
+        setToken(null);
     }
 
     keycloak.onAuthSuccess = function () {
         console.log('Auth Success');
+        setAuth();
     };
 
     keycloak.onAuthError = function (errorData) {
         console.log("Auth Error: " + JSON.stringify(errorData));
-        localStorage.clear();
+        cleanAuth();
     };
 
     keycloak.onAuthRefreshSuccess = function () {
         console.log('Auth Refresh Success');
+        setAuth();
     };
 
     keycloak.onAuthRefreshError = function () {
         console.log('Auth Refresh Error');
-        localStorage.clear();
+        cleanAuth()
     };
 
     keycloak.onAuthLogout = function () {
         console.log('Auth Logout');
+       cleanAuth();
     };
 
     keycloak.onTokenExpired = function () {
