@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { AuthProvider } from './AuthContext';
+import { AuthProvider } from './components/auth';
+import Router from './routes'
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <App/>
+      <Router/>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
