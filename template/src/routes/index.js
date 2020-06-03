@@ -31,7 +31,6 @@ const PrivateRoute = ({ component: Component }) => {
 };
 
 const Routes = () => {
-  const { keycloak } = useContext(AuthContext);
   return (<BrowserRouter>
     <Switch>
       <Route exact path="/" component={() => <Home/>} />
